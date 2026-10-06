@@ -47,6 +47,17 @@ function App() {
   const [isUnfolded, setIsUnfolded]         = useState(false);
   const [nameOffset, setNameOffset]         = useState({ x: 0, y: 0 });
 
+  /* ── start every (re)load from the first screen ──
+     The browser would otherwise restore the saved scroll offset on refresh,
+     dropping the visitor mid-chapter; force the top so the story always
+     begins at the curtain and flows to the last section. */
+  useEffect(() => {
+    const toTop = () => window.scrollTo(0, 0);
+    toTop();
+    window.addEventListener('load', toTop);
+    return () => window.removeEventListener('load', toTop);
+  }, []);
+
   /* ── lock scroll until curtain unfolds ── */
   useEffect(() => {
     if (!isUnfolded) {
