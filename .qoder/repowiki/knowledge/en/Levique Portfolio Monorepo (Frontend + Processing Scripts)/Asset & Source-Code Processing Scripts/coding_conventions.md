@@ -1,0 +1,4 @@
+- Each script is a standalone CommonJS module that reads input files synchronously via `fs.readFileSync` and writes outputs (or prints diagnostics) without returning values.
+- Image pixel analysis iterates over flat RGBA buffers using `(y * width + x) * 4` indexing and computes luminance via the standard `0.299*r + 0.587*g + 0.114*b` formula.
+- Source-code rewriters extract existing content from `src/App.tsx`/`.tsx.backup` using regex captures (e.g. section blocks, data arrays) and splice them into a new template string before writing back.
+- CSS update scripts split the target stylesheet at a sentinel class selector (e.g. `.intro-name-screen {`) and append a new block rather than editing in place.

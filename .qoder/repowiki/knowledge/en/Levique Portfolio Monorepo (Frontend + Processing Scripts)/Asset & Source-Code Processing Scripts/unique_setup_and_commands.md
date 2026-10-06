@@ -1,0 +1,1 @@
+Scripts assume a fixed workspace layout with `public/images/portrait.png`, `public/audio/introduction.mp3`, `src/App.tsx` (and sometimes a `.backup` copy), and Gemini-generated JPEGs under `C:/Users/ngenz/.gemini/antigravity/brain/<uuid>/...`; they are run as `node <script>.cjs` from the repository root.

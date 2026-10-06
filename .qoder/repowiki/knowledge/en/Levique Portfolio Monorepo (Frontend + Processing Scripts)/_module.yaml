@@ -1,0 +1,20 @@
+schema_version: 1
+module_path: ""
+title: Levique Portfolio Monorepo (Frontend + Processing Scripts)
+scope:
+    - index.html
+    - package.json
+    - package-lock.json
+    - vite.config.ts
+    - tsconfig*.json
+    - eslint.config.js
+    - postcss.config.js
+    - tailwind.config.js
+    - .gitignore
+    - rewrite_app.py
+    - tsconfig.app.json
+    - tsconfig.json
+    - tsconfig.node.json
+source_files: []
+depends_on: []
+related_to: []

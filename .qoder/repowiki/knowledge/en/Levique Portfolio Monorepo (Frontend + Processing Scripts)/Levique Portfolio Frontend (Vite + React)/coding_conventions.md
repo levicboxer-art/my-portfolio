@@ -1,0 +1,4 @@
+- Section visibility and active navigation are driven by `IntersectionObserver` instances that observe DOM nodes by their `id` attribute rather than by router state.
+- Scroll-reveal animations are applied by adding an `is-visible` class to elements carrying a `.reveal` class once they enter the viewport.
+- The talking portrait composites base photo + mouth patches + closed-eyelid overlay into offscreen canvases before applying vertical strip warp and horizontal column warp, keeping speech timing decoupled from deformation math.
+- Phoneme-to-viseme mapping is declared as a static `PHONEMES` array of `{t0, t1, viseme, aperture}` intervals and looked up per frame against the current audio time.

@@ -1,0 +1,1 @@
+Node.js utility scripts that inspect, transform, and regenerate static assets (PNG/JPEG pixel analysis, audio checks) and rewrite application source files (App.tsx, CSS, HTML sections) for the portfolio site.

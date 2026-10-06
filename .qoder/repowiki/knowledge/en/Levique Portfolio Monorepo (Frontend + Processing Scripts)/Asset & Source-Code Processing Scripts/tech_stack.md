@@ -1,0 +1,1 @@
+Node.js CommonJS (`.cjs`), `pngjs` for PNG parsing, `jpeg-js` for JPEG decoding, built-in `fs`/`zlib` for raw byte manipulation; output targets are TypeScript React (`src/App.tsx`) and CSS (`src/index.css`).

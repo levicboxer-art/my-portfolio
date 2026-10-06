@@ -1,0 +1,296 @@
+
+/* =======================================================
+   1. EXPERIENCE PROCESS FLOW (Screenshot 1 Style)
+   "Where theory met reality"
+======================================================= */
+.experience-process-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.exp-flow-container {
+  display: grid;
+  grid-template-columns: 42% 58%;
+  gap: 40px;
+  align-items: flex-start;
+  position: relative;
+  margin-top: 30px;
+}
+
+/* Left Intro Column with Rail */
+.exp-flow-intro {
+  display: flex;
+  gap: 24px;
+  position: sticky;
+  top: 120px;
+}
+
+.exp-side-rail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding-top: 10px;
+}
+
+.rail-icon {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.rail-icon:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: #fff;
+  transform: scale(1.1);
+}
+
+.rail-line {
+  width: 1px;
+  height: 120px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+}
+
+.exp-intro-content {
+  flex: 1;
+}
+
+.exp-lead-copy {
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 24px 0 28px;
+  max-width: 440px;
+}
+
+.exp-meta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 30px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cream);
+}
+
+.exp-meta-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 8px #4ade80;
+}
+
+/* Right Canvas with Floating Process Cards */
+.exp-cards-canvas {
+  position: relative;
+  min-height: 740px;
+  width: 100%;
+}
+
+.exp-flow-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.exp-flow-dash {
+  animation: exp-dash-flow 30s linear infinite;
+}
+
+@keyframes exp-dash-flow {
+  to { stroke-dashoffset: -1000; }
+}
+
+/* Floating Cards Common */
+.exp-float-card {
+  position: absolute;
+  border-radius: 20px;
+  padding: 26px 28px;
+  z-index: 2;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.28);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  backdrop-filter: blur(10px);
+}
+
+.exp-float-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.38);
+}
+
+.card-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.card-number-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.card-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.8;
+}
+
+.card-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0 0 4px;
+}
+
+.card-subtitle {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  margin: 0 0 14px;
+  opacity: 0.85;
+  font-weight: 500;
+}
+
+.card-body {
+  font-size: 13.5px;
+  line-height: 1.62;
+  margin: 0 0 18px;
+  opacity: 0.9;
+}
+
+.card-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.card-pills span {
+  font-family: 'DM Mono', monospace;
+  font-size: 10.5px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+/* Card 1: Glowing Accent Card (Coral / Red) */
+.exp-float-card.card-accent {
+  background: #f04e45;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 0 20px 50px rgba(240, 78, 69, 0.35), 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.exp-float-card.card-accent .card-number-badge {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.exp-float-card.card-accent .card-pills span {
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Card 2 & 3: Clean Floating Light Cards */
+.exp-float-card.card-light {
+  background: #ffffff;
+  color: #191716;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.exp-float-card.card-light .card-number-badge {
+  background: #f1ede6;
+  color: #191716;
+}
+
+.exp-float-card.card-light .card-pills span {
+  background: #f4efe8;
+  color: #3e3834;
+}
+
+/* Positions matching Screenshot 1 layout */
+.card-pos-1 {
+  top: 10px;
+  right: 20px;
+  width: 330px;
+}
+
+.card-pos-2 {
+  top: 235px;
+  left: 20px;
+  width: 340px;
+  transform: rotate(-1.5deg);
+}
+
+.card-pos-2:hover {
+  transform: translateY(-8px) rotate(0deg) scale(1.02);
+}
+
+.card-pos-3 {
+  top: 480px;
+  right: 40px;
+  width: 330px;
+  transform: rotate(1deg);
+}
+
+.card-pos-3:hover {
+  transform: translateY(-8px) rotate(0deg) scale(1.02);
+}
+
+/* Scroll-driven spotlight: the card nearest the viewport center glows in the
+   lemon accent (a held hover state); the others rest in clean white. Rules
+   sit after .card-light so they win the equal-specificity cascade. */
+.exp-float-card.card-active {
+  background: var(--lemon);
+  color: var(--ink);
+  border: 1px solid rgba(24, 22, 21, 0.35);
+  box-shadow: 0 24px 55px rgba(140, 180, 0, 0.45), 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.exp-float-card.card-active .card-number-badge {
+  background: rgba(24, 22, 21, 0.14);
+  color: var(--ink);
+}
+
+.exp-float-card.card-active .card-pills span {
+  background: rgba(24, 22, 21, 0.1);
+  border: 1px solid rgba(24, 22, 21, 0.22);
+  color: var(--ink);
+}
+
+.exp-float-card.card-pos-1.card-active { transform: translateY(-6px) scale(1.02); }
+.exp-float-card.card-pos-2.card-active { transform: translateY(-6px) rotate(0deg) scale(1.02); }
+.exp-float-card.card-pos-3.card-active { transform: translateY(-6px) rotate(0deg) scale(1.02); }
+
+/* =======================================================
+   2. PROJECTS SHOWCASE (Professional Structured Arrangement)
+   "Build. Test. Make it real."
+======================================================= */
+.projects-pro-section {
+  position: relative;
+}
+
+.pro-projects-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  margin-top: 36px;
+}

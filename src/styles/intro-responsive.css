@@ -1,0 +1,62 @@
+/* -----------------------------------------------
+   RESPONSIVE
+----------------------------------------------- */
+@media (max-width: 900px) {
+  .intro-portrait-section {
+    min-height: auto;
+  }
+  .talking-portrait-container {
+    flex-direction: column;
+    align-items: center;
+    padding-right: 0;
+    padding-bottom: 40px;
+    min-height: auto;
+  }
+  .canvas-wrapper {
+    padding-left: 0;
+    height: 60vh;
+    max-height: 520px;
+    width: 100%;
+    justify-content: center;
+  }
+  .portrait-base-img,
+  .talking-canvas {
+    max-width: 92vw;
+    object-position: bottom center;
+  }
+  .talking-canvas {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .talking-interface-panel {
+    transform: translateY(0);
+    padding: 20px 24px 30px;
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+  .panel-header {
+    width: 100%;
+    max-width: 440px;
+  }
+  .transcript-phrases {
+    font-size: 23px;
+  }
+  .audio-progress-bar-track {
+    max-width: 440px;
+  }
+  .talking-controls-row {
+    justify-content: center;
+  }
+
+  .hanging-scene {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 180px;
+    gap: 40px;
+  }
+  .hanging-wire { height: 120px; top: -120px; }
+  .tablet-frame { width: 240px; height: 310px; }
+  .about-greeting { text-align: center; }
+  .about-icons { justify-content: center; }
+}

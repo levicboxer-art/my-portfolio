@@ -1,0 +1,145 @@
+/* -----------------------------------------------
+   LEADERSHIP — Editorial journey (burgundy chapter)
+   Header pair (statement + pull-quote) over a three-step
+   numbered journey rail with the featured role elevated.
+----------------------------------------------- */
+.leadership-editorial {
+  margin-top: -10px;
+}
+
+.leadership-head {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 6vw;
+  align-items: end;
+  margin-bottom: 70px;
+}
+
+.leadership-quote {
+  margin: 0;
+  padding: 26px 30px;
+  border-left: 2px solid #c8a984;
+  background: rgba(0, 0, 0, 0.16);
+  border-radius: 0 18px 18px 0;
+}
+
+.lq-mark {
+  display: block;
+  font: 700 54px/0.6 'Playfair Display', serif;
+  color: #c8a984;
+  margin-bottom: 12px;
+}
+
+.leadership-quote blockquote {
+  margin: 0;
+  font: italic 500 clamp(17px, 1.6vw, 21px)/1.55 'Playfair Display', serif;
+  color: #f2e6da;
+}
+
+.leadership-quote figcaption {
+  margin-top: 14px;
+  font: 10px 'DM Mono', monospace;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(242, 230, 218, 0.55);
+}
+
+/* Journey rail: three numbered steps, featured step elevated */
+.leadership-journey {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.25fr;
+  gap: 22px;
+  align-items: stretch;
+}
+
+.lj-step {
+  position: relative;
+  padding: 26px 26px 30px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-top: 2px solid rgba(200, 169, 132, 0.55);
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.14);
+  transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+}
+
+.lj-step:hover {
+  transform: translateY(-5px);
+  border-top-color: #c8a984;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.lj-index {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  font: 700 30px/1 'DM Mono', monospace;
+  color: rgba(255, 255, 255, 0.1);
+}
+
+.lj-role {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font: 10px 'DM Mono', monospace;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #c8a984;
+  margin-bottom: 16px;
+}
+
+.lj-org {
+  display: block;
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.lj-step p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.7;
+  color: rgba(242, 230, 218, 0.75);
+}
+
+.lj-featured {
+  background: linear-gradient(160deg, rgba(200, 169, 132, 0.16), rgba(0, 0, 0, 0.22) 55%);
+  border-top-color: #c8a984;
+}
+
+.lj-featured .lj-index { color: rgba(200, 169, 132, 0.35); }
+
+.lj-stats {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+  font: 11px 'DM Mono', monospace;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #e9d9c4;
+}
+
+.lj-stats b {
+  font-size: 15px;
+  color: #c8a984;
+  margin-right: 4px;
+}
+
+.lj-stats i {
+  width: 1px;
+  height: 14px;
+  background: rgba(200, 169, 132, 0.4);
+}
+
+@media (max-width: 960px) {
+  .leadership-head {
+    grid-template-columns: 1fr;
+    gap: 34px;
+    margin-bottom: 48px;
+  }
+  .leadership-journey {
+    grid-template-columns: 1fr;
+  }
+}

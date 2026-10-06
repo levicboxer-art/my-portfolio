@@ -1,0 +1,1 @@
+Root of the Ngenzi Levique portfolio site, wiring a Vite+React frontend with Node/Python processing scripts that regenerate its source and static assets.

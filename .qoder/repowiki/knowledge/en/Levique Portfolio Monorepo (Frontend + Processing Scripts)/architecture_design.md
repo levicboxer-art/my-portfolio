@@ -1,0 +1,4 @@
+The root is a single npm workspace (`private: true`, no `workspaces` field) hosting two cooperating layers:
+- `src/` is the Vite+React application entry point, configured via `vite.config.ts` (alias `@` → `./src`, `lucide-react` excluded from dep optimization).
+- Top-level Node/Python scripts in `processing_scripts/` plus `rewrite_app.py` operate on the same `src/` tree: `rewrite_app.py` reads `src/App.tsx.backup`, extracts skill/certification data and HTML sections via regex, then rewrites `src/App.tsx` with a new three-phase intro (name → portrait → portfolio) while preserving section markup.
+- The build pipeline is therefore script-driven: processing scripts mutate source files before `vite build`; there is no shared TypeScript package or runtime library between children — communication happens through file I/O on `src/App.tsx` and `src/*.css`.

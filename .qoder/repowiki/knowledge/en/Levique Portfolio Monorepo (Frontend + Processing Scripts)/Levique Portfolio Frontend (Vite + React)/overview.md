@@ -1,0 +1,1 @@
+Single-page portfolio website for Ngenzi Levique built with Vite and React, featuring a scroll-driven chapter layout and a photorealistic canvas-based talking portrait.

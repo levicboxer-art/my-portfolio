@@ -1,0 +1,47 @@
+schema_version: 1
+module_path: processing_scripts
+title: Asset & Source-Code Processing Scripts
+scope:
+    - scripts/
+    - check_audio.cjs
+    - defilter_png.cjs
+    - eyelid_samples.cjs
+    - eyes_ascii.cjs
+    - eyes_map.cjs
+    - final_landmarks.cjs
+    - find_alpha.cjs
+    - find_face.cjs
+    - find_facial_landmarks.cjs
+    - full_css_update.cjs
+    - inspect_about.cjs
+    - inspect_eyes.cjs
+    - inspect_img.cjs
+    - inspect_lip_pixels.cjs
+    - inspect_mouth.cjs
+    - mouth_ascii.cjs
+    - mouth_map.cjs
+    - parse_mp3.cjs
+    - rewrite_app.cjs
+    - rewrite_scroll.cjs
+    - sample_colors.cjs
+    - scan_head.cjs
+    - test_landmarks.cjs
+    - test_math.cjs
+    - test_mouth_params.cjs
+    - test_mouth_patch.cjs
+    - test_strips.cjs
+    - update_about.cjs
+    - update_audio_trigger.cjs
+    - update_choco.cjs
+    - update_choco2.cjs
+    - update_css.cjs
+    - update_interactive.cjs
+    - update_layout.cjs
+    - update_scroll_css.cjs
+    - update_unfold.cjs
+    - validate_shaders.cjs
+    - verify_phonemes.cjs
+source_files: []
+depends_on: []
+related_to:
+    - path: frontend_app

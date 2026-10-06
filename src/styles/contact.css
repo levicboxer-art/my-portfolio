@@ -1,0 +1,232 @@
+/* -----------------------------------------------
+   CONTACT — "Let's make something useful."
+   Closing page in a modern-platform style: ambient
+   glow, split callout, glass tiles, social row.
+----------------------------------------------- */
+
+.contact-footer {
+  padding: 130px 8vw 44px;
+  overflow: hidden;
+}
+
+/* Warm ambient glow behind the callout */
+.contact-footer::before {
+  content: '';
+  position: absolute;
+  top: -140px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(860px, 90vw);
+  height: 470px;
+  background: radial-gradient(
+    closest-side,
+    rgba(229, 83, 75, 0.16),
+    rgba(216, 181, 108, 0.07) 55%,
+    transparent 78%
+  );
+  pointer-events: none;
+}
+
+.contact-callout {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 56px;
+  align-items: end;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.contact-intro .eyebrow { margin-bottom: 26px; }
+
+/* Gradient serif accent on the closing statement */
+.footer-title em {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  font-style: italic;
+  background: linear-gradient(92deg, #e5534b 10%, #d8b56c 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-right: 0.06em;
+}
+
+.contact-note {
+  margin: 28px 0 0;
+  max-width: 440px;
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: rgba(239, 233, 223, 0.66);
+}
+
+/* ── Contact action panel ── */
+.contact-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-tile {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--cream);
+  text-decoration: none;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.contact-tile:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(216, 181, 108, 0.45);
+  transform: translateY(-3px);
+}
+
+.ct-icon {
+  flex: 0 0 46px;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(229, 83, 75, 0.16);
+  border: 1px solid rgba(229, 83, 75, 0.32);
+  color: #f0a49e;
+}
+
+.ct-body {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.ct-body small {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #9d948a;
+}
+
+.ct-body strong {
+  font-size: 15.5px;
+  font-weight: 700;
+  color: #f2ece2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ct-arrow {
+  margin-left: auto;
+  flex-shrink: 0;
+  color: #9d948a;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.contact-tile:hover .ct-arrow {
+  transform: translate(3px, -3px);
+  color: #d8b56c;
+}
+
+.contact-availability {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+  padding-left: 4px;
+  font-size: 12.5px;
+  color: #9d948a;
+}
+
+/* ── Socials ── */
+.footer-socials {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  max-width: 1180px;
+  margin: 58px auto 0;
+}
+
+.footer-socials a {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: rgba(239, 233, 223, 0.75);
+  transition: border-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.footer-socials a:hover {
+  border-color: rgba(216, 181, 108, 0.55);
+  color: #d8b56c;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* ── Bottom bar ── */
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 1180px;
+  margin: 50px auto 0;
+  padding-top: 26px;
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+  font-family: 'DM Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #7d756c;
+}
+
+.footer-bottom small {
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-size: 11.5px;
+}
+
+.footer-bottom button {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--cream);
+  cursor: pointer;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-bottom button:hover {
+  background: var(--red);
+  border-color: var(--red);
+  transform: translateY(-3px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 920px) {
+  .contact-callout {
+    grid-template-columns: 1fr;
+    gap: 42px;
+    align-items: start;
+  }
+}
+
+@media (max-width: 560px) {
+  .footer-bottom {
+    flex-direction: column;
+    gap: 14px;
+    text-align: center;
+  }
+}

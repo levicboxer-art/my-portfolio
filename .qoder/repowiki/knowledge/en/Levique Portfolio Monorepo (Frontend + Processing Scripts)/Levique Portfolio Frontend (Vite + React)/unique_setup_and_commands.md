@@ -1,0 +1,1 @@
+Requires static assets at `/images/portrait.png`, `/images/closed_eyes.png`, `/images/mouth_open.png`, `/images/mouth_smile.png` and `/audio/introduction.mp3` served from the Vite public directory; the portrait will not render without them.

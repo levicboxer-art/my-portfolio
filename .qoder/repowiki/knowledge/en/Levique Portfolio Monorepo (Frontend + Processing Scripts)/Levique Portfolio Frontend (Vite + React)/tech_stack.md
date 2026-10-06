@@ -1,0 +1,1 @@
+React 18 with TypeScript, Vite dev server, lucide-react icons, HTML5 Canvas 2D for the talking portrait, Web Audio API (`AudioContext` + `AnalyserNode`) for audio-reactive lip motion, and IntersectionObserver for scroll-driven navigation.

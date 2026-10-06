@@ -1,0 +1,2 @@
+- Cross-child mutations target `src/App.tsx` directly rather than going through a shared API — scripts read/write this file as the integration contract.
+- Static assets consumed by both the React app and processing scripts live under `src/assets/` and are referenced relative to the Vite build root.

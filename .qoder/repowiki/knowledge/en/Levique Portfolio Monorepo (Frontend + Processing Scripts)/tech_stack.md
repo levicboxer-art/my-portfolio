@@ -1,0 +1,1 @@
+Vite 5 + React 18 + TypeScript 5 as the frontend stack; Tailwind CSS 3 + PostCSS for styling; Node.js scripts using `jpeg-js` and `pngjs` for asset analysis; Python 3 script (`rewrite_app.py`) for source regeneration.

@@ -1,0 +1,1 @@
+`npm run dev` / `npm run build` / `npm run preview` run the Vite dev server and production build against whatever `src/App.tsx` currently exists; `rewrite_app.py` must be executed manually to regenerate `src/App.tsx` from `src/App.tsx.backup` before building if the generated layout has drifted.

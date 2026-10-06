@@ -1,0 +1,9 @@
+schema_version: 1
+module_path: frontend_app
+title: Levique Portfolio Frontend (Vite + React)
+scope:
+    - src/
+source_files: []
+depends_on: []
+related_to:
+    - path: processing_scripts

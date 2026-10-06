@@ -1,0 +1,519 @@
+/* -----------------------------------------------
+   PORTRAIT SECTION
+----------------------------------------------- */
+.intro-portrait-section {
+  min-height: 100vh;
+  display: flex;
+  background: #5c3a21;
+  overflow: hidden;
+  position: relative;
+}
+
+/* -----------------------------------------------
+   PORTRAIT + INTRODUCTION  (tp-* namespace)
+----------------------------------------------- */
+
+.tp-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  padding-right: 4vw;
+}
+
+.tp-canvas-wrap {
+  position: relative;
+  flex: 0 0 auto;
+  height: 92vh;
+  padding-left: 30px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+/* The portrait image — no frame, no card, no border */
+.tp-canvas {
+  height: 100%;
+  width: auto;
+  max-width: 52vw;
+  display: block;
+  mask-image: linear-gradient(to top, rgba(0,0,0,1) 86%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 86%, rgba(0,0,0,0) 100%);
+  filter: drop-shadow(20px 0 45px rgba(0,0,0,0.30));
+  transition: filter 0.5s ease;
+  user-select: none;
+}
+
+.tp-canvas.tp-is-talking {
+  filter: drop-shadow(28px 0 55px rgba(0,0,0,0.48));
+}
+
+.tp-ambient {
+  position: absolute;
+  top: 10%; left: 10%;
+  width: 440px; height: 440px;
+  background: radial-gradient(circle, rgba(230,170,120,0.10) 0%, rgba(92,58,33,0) 70%);
+  pointer-events: none;
+}
+
+/* Loading / error overlay while the portrait assets arrive */
+.tp-asset-status {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0 40px 24vh;
+  text-align: center;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  color: rgba(255, 244, 230, 0.85);
+  background: radial-gradient(ellipse at center, rgba(23, 17, 15, 0.55), rgba(23, 17, 15, 0) 70%);
+  pointer-events: none;
+}
+
+/* Crash fallback rendered by the ErrorBoundary around the talking portrait */
+.app-error-fallback {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 24px;
+  text-align: center;
+  color: #fff4e6;
+  background: #17110f;
+}
+.app-error-fallback h2 { font-size: 1.6rem; }
+.app-error-fallback p { opacity: 0.75; max-width: 46ch; }
+.app-error-fallback button {
+  margin-top: 8px;
+  padding: 10px 24px;
+  border: 1px solid rgba(255, 244, 230, 0.4);
+  border-radius: 999px;
+  background: transparent;
+  color: #fff4e6;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+.app-error-fallback button:hover {
+  background: #fff4e6;
+  color: #17110f;
+}
+
+/* Right panel */
+.tp-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 9vh;
+  padding-left: 26px;
+  max-width: 520px;
+  transform: translateY(25px);
+  z-index: 2;
+}
+
+.tp-status-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #bfa794;
+}
+
+.tp-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #7a5c48;
+  flex-shrink: 0;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.tp-dot.tp-dot--live {
+  background: #4ade80;
+  box-shadow: 0 0 0 3px rgba(74,222,128,0.22), 0 0 10px rgba(74,222,128,0.55);
+  animation: tp-dot-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes tp-dot-pulse {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(74,222,128,0.22), 0 0 10px rgba(74,222,128,0.45); }
+  50%       { box-shadow: 0 0 0 6px rgba(74,222,128,0.10), 0 0 20px rgba(74,222,128,0.55); }
+}
+
+.tp-status-label { color: #d1b9a8; font-weight: 600; }
+.tp-time { margin-left: auto; color: #8a6b58; font-size: 10px; }
+
+/* Synchronized Live Speech Transcript */
+.tp-transcript-box {
+  margin-bottom: 24px;
+}
+
+.tp-transcript-lead {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.20em;
+  color: #c4a58f;
+  margin-bottom: 10px;
+  opacity: 0.85;
+}
+
+.tp-transcript-body {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(20px, 2.4vw, 32px);
+  line-height: 1.44;
+  color: rgba(209,185,165,0.45);
+}
+
+.tp-phrase {
+  display: inline;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border-radius: 4px;
+  padding: 1px 3px;
+}
+
+.tp-phrase--spoken {
+  color: rgba(239,233,223,0.78);
+}
+
+.tp-phrase--active {
+  color: #ffffff;
+  font-weight: 700;
+  text-shadow: 0 0 16px rgba(255,245,235,0.55);
+  background: rgba(255,255,255,0.08);
+}
+
+.tp-caption {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(22px, 2.5vw, 34px);
+  line-height: 1.48;
+  color: rgba(209,185,165,0.60);
+  margin-bottom: 24px;
+}
+
+.tp-caption strong {
+  color: rgba(239,233,223,0.90);
+  font-style: normal;
+  font-weight: 700;
+}
+
+.tp-bar-track {
+  width: 100%; height: 4px;
+  background: rgba(0,0,0,0.35);
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative; overflow: hidden;
+  margin-bottom: 26px;
+  transition: height 0.2s ease;
+}
+
+.tp-bar-track:hover { height: 7px; }
+
+.tp-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #c4a58f 0%, #f0e8df 100%);
+  border-radius: 2px;
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+
+.tp-btns { display: flex; align-items: center; gap: 14px; }
+
+.tp-btn {
+  border: none;
+  cursor: pointer;
+  font-family: 'DM Mono', monospace;
+  font-weight: 700;
+  transition: all 0.3s cubic-bezier(0.175,0.885,0.32,1.275);
+}
+
+.tp-btn--primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  background: var(--cream);
+  color: var(--ink);
+  border-radius: 40px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.28);
+}
+
+.tp-btn--primary:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 18px 38px rgba(0,0,0,0.40);
+  background: #ffffff;
+}
+
+.tp-btn--pulse {
+  animation: tp-btn-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes tp-btn-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(239,233,223,0.55); }
+  60%       { box-shadow: 0 0 0 16px rgba(239,233,223,0); }
+}
+
+.talking-portrait-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  padding-right: 4vw;
+}
+
+/* Portrait Canvas: integrated naturally with zero borders, frames, or boxes */
+.canvas-wrapper {
+  position: relative;
+  flex: 0 0 auto;
+  height: 92vh;
+  padding-left: 30px; /* exactly 30px from left */
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.portrait-base-img {
+  height: 100%;
+  width: auto;
+  max-width: 55vw;
+  object-fit: contain;
+  object-position: bottom left;
+  display: block;
+  filter: drop-shadow(25px 0 50px rgba(0,0,0,0.32));
+  mask-image: linear-gradient(to top, rgba(0,0,0,1) 88%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 88%, rgba(0,0,0,0) 100%);
+  user-select: none;
+  pointer-events: none;
+}
+
+.talking-canvas {
+  position: absolute;
+  left: 30px;
+  bottom: 0;
+  height: 100%;
+  width: auto;
+  max-width: 55vw;
+  object-fit: contain;
+  object-position: bottom left;
+  display: block;
+  mask-image: linear-gradient(to top, rgba(0,0,0,1) 88%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 88%, rgba(0,0,0,0) 100%);
+  user-select: none;
+  pointer-events: none;
+}
+
+.talking-canvas.is-talking {
+  filter: drop-shadow(30px 0 60px rgba(0,0,0,0.42));
+}
+
+.portrait-ambient-glow {
+  position: absolute;
+  top: 15%;
+  left: 20%;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(230,175,130,0.12) 0%, rgba(92,58,33,0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Live Interactive Interface Panel */
+.talking-interface-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 9vh;
+  padding-left: 20px;
+  max-width: 540px;
+  /* 25px offset to match laptop baseline */
+  transform: translateY(25px);
+  z-index: 2;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 12px;
+}
+
+.live-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #d8c2b0;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(239, 233, 223, 0.12);
+  backdrop-filter: blur(8px);
+}
+
+.status-indicator {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #a38570;
+  transition: all 0.3s ease;
+}
+
+.status-indicator.active {
+  background: #4ade80;
+  box-shadow: 0 0 10px #4ade80;
+}
+
+.header-time-counter {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: #bfa794;
+  letter-spacing: 0.08em;
+}
+
+/* Synchronized Live Transcript */
+.synchronized-transcript {
+  margin-bottom: 24px;
+}
+
+.transcript-lead-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: #b9907a;
+  margin-bottom: 14px;
+}
+
+.transcript-phrases {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 2.7vw, 38px);
+  line-height: 1.4;
+  color: rgba(209, 185, 168, 0.55);
+  font-style: italic;
+  margin: 0;
+  padding: 0;
+  transition: color 0.3s ease;
+}
+
+.transcript-phrase {
+  display: inline;
+  transition: all 0.25s ease;
+  padding: 1px 3px;
+  border-radius: 4px;
+}
+
+.transcript-phrase.is-spoken {
+  color: rgba(239, 233, 223, 0.88);
+}
+
+.transcript-phrase.is-active {
+  color: #ffffff;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.09);
+  text-shadow: 0 0 18px rgba(255, 240, 220, 0.5);
+}
+
+/* Audio Progress Track */
+.audio-progress-bar-track {
+  width: 100%;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 26px;
+  transition: height 0.2s ease;
+}
+
+.audio-progress-bar-track:hover {
+  height: 6px;
+}
+
+.audio-progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #d1b9a8 0%, #ffffff 100%);
+  border-radius: 2px;
+  transition: width 0.1s linear;
+}
+
+/* Button Controls */
+.talking-controls-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.talking-play-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 30px;
+  background: var(--cream);
+  color: var(--ink);
+  border: none;
+  border-radius: 40px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.talking-play-btn:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
+  background: #ffffff;
+}
+
+.talking-play-btn.pulse {
+  animation: pulse-cream-btn 2.4s ease-in-out infinite;
+}
+
+@keyframes pulse-cream-btn {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(239, 233, 223, 0.5); }
+  60% { box-shadow: 0 0 0 14px rgba(239, 233, 223, 0); }
+}
+
+.talking-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.22);
+  color: var(--cream);
+  border: 1px solid rgba(239, 233, 223, 0.16);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.talking-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.08);
+}

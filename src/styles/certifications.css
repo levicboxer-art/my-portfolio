@@ -1,0 +1,342 @@
+/* Horizontal S-wave white shape spanning across the black background */
+.cert-swave-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* All content inside sits above the S-wave */
+.cert-screenshot-section > *:not(.cert-swave-bg) {
+  position: relative;
+  z-index: 1;
+}
+
+.cert-screenshot-header {
+  margin-bottom: 34px;
+  max-width: 780px;
+}
+
+.cert-screenshot-sub {
+  font-size: 16px;
+  color: rgba(239, 233, 223, 0.85);
+  max-width: 620px;
+  margin: 14px auto 0;
+  line-height: 1.6;
+}
+
+/* Featured ITU Badge Card (Centered In-Between) */
+.cert-itu-featured-wrap {
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto 28px;
+}
+
+.cert-itu-badge-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 26px 36px;
+  background: linear-gradient(135deg, rgba(14, 28, 48, 0.92) 0%, rgba(20, 24, 38, 0.94) 100%);
+  border: 1.5px solid rgba(56, 189, 248, 0.45);
+  border-radius: 20px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45), 0 0 35px rgba(56, 189, 248, 0.18);
+  backdrop-filter: blur(12px);
+  text-align: left;
+  transition: all 0.35s ease;
+  overflow: hidden;
+}
+
+.cert-itu-badge-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(56, 189, 248, 0.75);
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.55), 0 0 50px rgba(56, 189, 248, 0.28);
+}
+
+.itu-badge-glow {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.itu-badge-left {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex: 1;
+}
+
+.itu-emblem-box {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.25) 0%, rgba(14, 165, 233, 0.12) 100%);
+  border: 1.5px solid rgba(56, 189, 248, 0.55);
+  color: #38bdf8;
+  flex-shrink: 0;
+}
+
+.itu-emblem-ring {
+  position: absolute;
+  inset: -4px;
+  border-radius: 20px;
+  border: 1px dashed rgba(56, 189, 248, 0.35);
+  animation: itu-spin 20s linear infinite;
+}
+
+@keyframes itu-spin {
+  to { transform: rotate(360deg); }
+}
+
+.itu-badge-text {
+  flex: 1;
+}
+
+.itu-tag-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+.itu-pill-un {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  padding: 3px 10px;
+  border-radius: 12px;
+  background: rgba(56, 189, 248, 0.14);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  color: #38bdf8;
+}
+
+.itu-pill-verified {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  padding: 3px 10px;
+  border-radius: 12px;
+  background: rgba(74, 222, 128, 0.15);
+  border: 1px solid rgba(74, 222, 128, 0.35);
+  color: #4ade80;
+}
+
+.itu-badge-text h3 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 21px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 4px;
+  letter-spacing: -0.01em;
+}
+
+.itu-badge-text p {
+  font-size: 13.5px;
+  color: rgba(239, 233, 223, 0.85);
+  margin: 0;
+}
+
+.itu-badge-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.itu-metric-badge {
+  text-align: right;
+  padding-left: 24px;
+  border-left: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.itu-metric-badge strong {
+  display: block;
+  font-family: 'Manrope', sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: #38bdf8;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+.itu-metric-badge small {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #94a3b8;
+}
+
+/* Certifications Grid (Centered In-Between) */
+.cert-screenshot-grid.cert-grid--centered {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: 1160px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.cert-screen-card {
+  background: rgba(26, 22, 24, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 16px;
+  padding: 20px 22px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  backdrop-filter: blur(10px);
+  text-align: left;
+}
+
+.cert-screen-card:hover {
+  background: rgba(36, 30, 34, 0.90);
+  border-color: rgba(255, 255, 255, 0.32);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 255, 255, 0.06);
+}
+
+.cert-screen-card.cert-card-highlight {
+  border-color: rgba(255, 255, 255, 0.24);
+  background: rgba(30, 24, 28, 0.85);
+}
+
+.cert-screen-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(240, 78, 69, 0.18);
+  border: 1px solid rgba(240, 78, 69, 0.35);
+  color: #ff7b72;
+  flex-shrink: 0;
+}
+
+.cert-icon--gold {
+  background: rgba(245, 158, 11, 0.18);
+  border-color: rgba(245, 158, 11, 0.4);
+  color: #fbbf24;
+}
+
+.cert-icon--cyan {
+  background: rgba(56, 189, 248, 0.18);
+  border-color: rgba(56, 189, 248, 0.4);
+  color: #38bdf8;
+}
+
+.cert-screen-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.cert-screen-info h4 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cert-screen-info p {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: rgba(239, 233, 223, 0.75);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cert-verified-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  background: rgba(74, 222, 128, 0.12);
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  color: #4ade80;
+  flex-shrink: 0;
+}
+
+.cert-pill--gold {
+  background: rgba(245, 158, 11, 0.14);
+  border-color: rgba(245, 158, 11, 0.35);
+  color: #fbbf24;
+}
+
+.cert-pill--cyan {
+  background: rgba(56, 189, 248, 0.14);
+  border-color: rgba(56, 189, 248, 0.35);
+  color: #38bdf8;
+}
+
+/* Languages Strip at bottom */
+.languages-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 50px;
+  flex-wrap: wrap;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.languages-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #c4a58f;
+}
+
+.languages-items {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.lang-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 12px;
+  color: var(--cream);
+}
+
+.lang-pill strong {
+  color: #fff;
+}
+
+.lang-pill small {
+  font-family: 'DM Mono', monospace;
+  opacity: 0.65;
+  font-size: 10px;
+}
