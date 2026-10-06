@@ -255,25 +255,30 @@
   transform: translateY(-8px) rotate(0deg) scale(1.02);
 }
 
-/* Scroll-driven spotlight: the card nearest the viewport center glows in the
-   lemon accent (a held hover state); the others rest in clean white. Rules
-   sit after .card-light so they win the equal-specificity cascade. */
-.exp-float-card.card-active {
-  background: var(--lemon);
-  color: var(--ink);
-  border: 1px solid rgba(24, 22, 21, 0.35);
-  box-shadow: 0 24px 55px rgba(140, 180, 0, 0.45), 0 10px 25px rgba(0, 0, 0, 0.25);
+/* Scroll-driven spotlight: the card nearest the viewport center turns fully
+   solid red — the entire card, no pale/washed corner — with a neutral grey
+   shadow; the others rest in clean white. Pointer hover gets the same full
+   red focus. Rules sit after .card-light so they win the equal-specificity
+   cascade. */
+.exp-float-card.card-active,
+.exp-float-card:hover {
+  background-color: #f04e45;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 24px 55px rgba(28, 28, 28, 0.4), 0 10px 25px rgba(0, 0, 0, 0.25);
 }
 
-.exp-float-card.card-active .card-number-badge {
-  background: rgba(24, 22, 21, 0.14);
-  color: var(--ink);
+.exp-float-card.card-active .card-number-badge,
+.exp-float-card:hover .card-number-badge {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
 }
 
-.exp-float-card.card-active .card-pills span {
-  background: rgba(24, 22, 21, 0.1);
-  border: 1px solid rgba(24, 22, 21, 0.22);
-  color: var(--ink);
+.exp-float-card.card-active .card-pills span,
+.exp-float-card:hover .card-pills span {
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
 }
 
 .exp-float-card.card-pos-1.card-active { transform: translateY(-6px) scale(1.02); }
